@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Betta Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ betta.name }}</span>
+    <p>Breed: {{ betta.breed }}</p>
+    <p>Description: {{ betta.description }}</p>
+    {% if betta.age > 0 %}
+      <p>Age: {{ betta.age }}</p>
+    {% else %}
+      <p>Age: New Born</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

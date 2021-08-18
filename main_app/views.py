@@ -1,15 +1,5 @@
 from django.shortcuts import render
-
-class Betta:
-    def __init__(self, name, breed, description, age):
-        self.name = name
-        self.breed = breed
-        self.description = description
-        self.age = age
-
-bettas=[
-    Betta('Rainbow', 'double tail', 'colorful angel', 1)
-]
+from .models import Betta
 
 def home(request):
     return render(request, 'home.html')
@@ -18,5 +8,9 @@ def about(request):
     return render(request, 'about.html')
 
 def bettas_index(request):
+    bettas = Betta.objects.all()
     return render(request, 'bettas/index.html', {'bettas': bettas})
 
+def bettas_detail(request, betta_id):
+    betta = Betta.objects.get(id=betta_id)
+    return render(request, 'bettas/detail.html', {'betta': betta})
