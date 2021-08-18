@@ -9,4 +9,5 @@ urlpatterns = [
     path('bettas/create/', views.BettaCreate.as_view(), name='bettas_create'),
     path('bettas/<int:pk>/update', views.BettaUpdate.as_view(), name='bettas_update'),
     path('bettas/<int:pk>/delete', views.BettaDelete.as_view(), name='bettas_delete'),
+    path('bettas/<int:betta_id>/add_feeding', views.add_feeding, name='add_feeding'),
 ]
