@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Betta
+from .models import Betta, Feeding
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import FeedingForm
 
@@ -25,6 +25,7 @@ def add_feeding(request, betta_id):
         new_feeding.betta_id = betta_id
         new_feeding.save()
     return redirect('detail', betta_id=betta_id)
+
 
 class BettaCreate(CreateView):
     model = Betta
