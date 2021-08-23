@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, render
-from .models import Betta
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import FeedingForm
 from .models import Betta, Toy
@@ -17,7 +16,7 @@ def about(request):
 
 class BettaCreate(CreateView):
     model = Betta
-    fields = '__all__'
+    fields = ['name', 'breed', 'description', 'age']
 
     def form_valid(self, form):
         form.instance.user = self.request.user

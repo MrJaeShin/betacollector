@@ -39,9 +39,10 @@ class Betta(models.Model):
     
 class Feeding(models.Model):
     date = models.DateField('feeding date')
-    meal = models.CharField(max_length=1,
-    choices=MEALS,
-    default=MEALS[0][0]
+    meal = models.CharField(
+        max_length=1,
+        choices=MEALS,
+        default=MEALS[0][0]
     )
     betta = models.ForeignKey(Betta, on_delete=models.CASCADE)
 
